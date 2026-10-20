@@ -1,0 +1,54 @@
+{
+  "id": "bad-apple",
+  "name": "Bad Apple",
+  "description": "Desktop background video overlay that renders Bad Apple using a silhouette shader, with support for custom media assets.",
+  "icon": "smart_display",
+  "mediaurl": "badapple.mp4",
+  "version": "1.0.0",
+  "type": "quickshell",
+  "restart": false,
+  "backgroundWidgets": [
+    {
+      "id": "bad-apple",
+      "name": "Bad Apple Overlay",
+      "component": "BadAppleOverlay.qml",
+      "z": 2.5
+    }
+  ],
+  "settings": [
+    {
+      "id": "mediaPath",
+      "label": "Media asset path",
+      "type": "text",
+      "default": "badapple.mp4",
+      "placeholder": "badapple.mp4, path to video, or URL"
+    },
+    {
+      "id": "playing",
+      "label": "Play overlay",
+      "type": "toggle",
+      "default": true
+    },
+    {
+      "id": "audioEnabled",
+      "label": "Enable audio",
+      "type": "toggle",
+      "default": true
+    }
+  ],
+  "author": {
+    "name": "ladybug-me",
+    "url": "https://github.com/ladybug-me"
+  },
+  "license": "GPL-3.0-or-later",
+  "keywords": [
+    "bad-apple",
+    "overlay",
+    "video",
+    "background",
+    "silhouette"
+  ],
+  "shell-compat": {
+    "min": "2.3"
+  }
+}
