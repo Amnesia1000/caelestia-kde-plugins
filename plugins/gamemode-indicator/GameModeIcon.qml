@@ -17,7 +17,9 @@ Item {
     // it is actually doing something.
     visible: active
     implicitWidth: visible ? icon.implicitWidth + Tokens.padding.small * 2 : 0
-    implicitHeight: (bar && bar.barThickness) ? bar.barThickness : (icon.implicitHeight || 22)
+    readonly property int thickness: (bar && (bar.thickness || bar.barThickness)) ? (bar.thickness || bar.barThickness) : Tokens.sizes.bar.innerWidth
+
+    implicitHeight: root.thickness
 
 
     GameModeDetect {
