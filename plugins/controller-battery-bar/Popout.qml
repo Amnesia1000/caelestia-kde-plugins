@@ -63,7 +63,7 @@ ColumnLayout {
         if (devices.pluggedInFor(d))
             return "#4ade80";
         const level = d.percentage ?? 0;
-        return level > root.warnLevel ? "#4ade80" : level > root.lowLevel ? "#fbbf24" : Colours.palette.m3error;
+        return level > root.warnLevel ? "#4ade80" : level > root.lowLevel ? "#fbbf24" : "#ef4444";
     }
 
     component DetailRow: RowLayout {
@@ -142,43 +142,16 @@ ColumnLayout {
                         Layout.fillWidth: true
                         spacing: Tokens.spacing.medium
 
-                        Shape {
-                            id: ring
-
+                        CircularProgress {
                             Layout.preferredWidth: 44
                             Layout.preferredHeight: 44
-                            preferredRendererType: Shape.CurveRenderer
-
-                            ShapePath {
-                                strokeColor: Colours.palette.m3surfaceContainerHighest
-                                strokeWidth: 4
-                                fillColor: "transparent"
-
-                                PathAngleArc {
-                                    centerX: ring.width / 2
-                                    centerY: ring.height / 2
-                                    radiusX: (ring.width - 4) / 2
-                                    radiusY: (ring.height - 4) / 2
-                                    startAngle: -90
-                                    sweepAngle: 360
-                                }
-                            }
-
-                            ShapePath {
-                                strokeColor: card.levelColour
-                                strokeWidth: 4
-                                fillColor: "transparent"
-                                capStyle: ShapePath.RoundCap
-
-                                PathAngleArc {
-                                    centerX: ring.width / 2
-                                    centerY: ring.height / 2
-                                    radiusX: (ring.width - 4) / 2
-                                    radiusY: (ring.height - 4) / 2
-                                    startAngle: -90
-                                    sweepAngle: Math.max(0.5, Math.min(359.9, 360 * card.level))
-                                }
-                            }
+                            implicitSize: 44
+                            strokeWidth: 4
+                            padding: 0
+                            spacing: 0
+                            value: card.level
+                            fgColour: card.levelColour
+                            bgColour: Colours.palette.m3surfaceContainerHighest
 
                             StyledText {
                                 anchors.centerIn: parent
